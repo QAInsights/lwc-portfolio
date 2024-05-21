@@ -1,0 +1,14 @@
+<template>
+    <template for:each={projects} for:item="project">
+        <lightning-card title={project.name} key={project.id}>
+            <div class="slds-m-around_medium">            
+                <div>
+                    <p>{project.description}</p>
+                    <template for:each={project.tags} for:item="tag">
+                        <span class="slds-badge slds-theme_warning" key={tag}>{tag}</span>
+                    </template>         
+                </div>
+            </div>
+        </lightning-card>
+    </template>
+</template>

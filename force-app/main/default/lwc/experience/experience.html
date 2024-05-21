@@ -1,0 +1,29 @@
+<template>
+    <template if:false={theme}>
+        <template for:each={experience} for:item="experience">
+            <lightning-card title={experience.company} key={experience.id}>
+                <div class="slds-m-around_medium">            
+                    <div>
+                        <p>{experience.role}</p>
+                        <p>{experience.year}</p>
+                        <template for:each={experience.tags} for:item="tag">
+                            <span class="slds-badge slds-theme_success" key={tag}>{tag}</span>
+                        </template>         
+                    </div>
+                </div>
+            </lightning-card>
+        </template>
+    </template>
+    <p>{recordId}</p>
+    <template if:true={theme}>
+        <div class="slds-page-header__name-title">
+            <h1>
+                <span class="slds-page-header__title slds-truncate" 
+                    title={customExperience}>{customExperience}</span>
+            </h1>
+        </div>
+        <div>
+            <p class="slds-page-header__name-meta">{customRole} {customMonthYear}</p>
+        </div>        
+    </template>
+</template>

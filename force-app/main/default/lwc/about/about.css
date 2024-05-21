@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+}
+
+.text-section {
+    width: 50%;
+}
+
+.image-section {
+    width: 50%;
+    display: flex;  /* New line: make this a flex container */
+    align-items: center;  /* New line: vertical alignment */
+    justify-content: center;  /* New line: horizontal alignment */
+}
+
+.image-section img {
+    width: 50%;
+    height: 50%;
+}
+
+h1, h2, p {
+    margin: 0;
+    padding: 0;
+    text-align: right;
+    font-size: 25px;
+}

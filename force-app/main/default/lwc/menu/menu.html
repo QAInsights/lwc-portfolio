@@ -1,0 +1,69 @@
+<template>    
+    <div class="navbar">
+        <div>
+            <a data-id="about" onclick={handleOnClickEvent}>About Me</a>
+        </div>
+        <div>
+            <a data-id="experience" onclick={handleOnClickEvent}>Experience</a>
+        </div>
+        <div>
+            <a data-id="project" onclick={handleOnClickEvent}>Projects</a>
+        </div>
+        <div>
+            <a data-id="contact" onclick={handleOnClickEvent}>Contact Me</a>
+        </div>
+    </div>
+    <div class="toggle">
+        <div class="slds-form-element">
+            <label class="slds-checkbox_toggle slds-grid">
+            <span class="slds-form-element__label slds-m-bottom_none">SF Look</span>
+            <input type="checkbox" name="theme" value={theme} aria-describedby={theme} onclick={themeHandler} />
+            <span id="checkbox-toggle-3" class="slds-checkbox_faux_container">
+            <span class="slds-checkbox_faux"></span>
+            <span class="slds-checkbox_on">On</span>
+            <span class="slds-checkbox_off">Off</span>
+            </span>
+            </label>
+        </div>
+    </div>
+    <br/>
+    <div>
+        <template if:true={selectedTheme}>
+            <div class="slds-page-header">
+                <div class="slds-page-header__row">
+                    <div class="slds-page-header__col-title">
+                        <div class="slds-media">
+                            <div class="slds-media__figure">
+                                <span class="slds-icon_container slds-icon-standard-opportunity" title="opportunity">
+                                    <svg class="slds-icon slds-page-header__icon" aria-hidden="true">
+                                        <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#opportunity"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">opportunity</span>
+                                </span>
+                            </div>
+                            <div class="slds-media__body">
+                                <div class="slds-page-header__name">
+                                    <c-experience theme={selectedTheme}></c-experience>                      
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <template if:false={selectedTheme}>
+            <div>
+                <template if:true={showAbout}>
+                    <c-about></c-about>
+                </template>
+                <template if:true={showExperience}>
+                    <c-experience></c-experience>
+                </template>
+                <template if:true={showProjects}>
+                    <c-project></c-project>
+                </template>
+            </div>
+        </template>
+    </div>
+    
+</template>
